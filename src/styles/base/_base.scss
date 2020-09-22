@@ -1,0 +1,40 @@
+* {
+  box-sizing: inherit;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+
+::selection {
+  background-color: $primary-color;
+  color: #fff;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: $primary-font;
+  font-weight: 400;
+  font-style: normal;
+}
+
+a,
+a:link,
+a:visited,
+a:focus,
+a:hover,
+a:active {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  margin-bottom: 0;
+}

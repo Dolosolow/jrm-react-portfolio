@@ -1,0 +1,11 @@
+.cardlist {
+  align-items: center;
+  background-color: #181b25;
+  // border: 2px solid lime;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 10rem;
+  position: relative;
+  width: 100%;
+  z-index: 5;
+}

@@ -1,0 +1,140 @@
+// -------------------
+// KEYFRAMES
+// -------------------
+// -------------------
+// logoPathAnimator
+// -------------------
+@keyframes logoPathAnimator {
+  0% {
+    background-position: 0px 0px;
+  }
+  100% {
+    background-position: -38226px 0px;
+  }
+}
+// -------------------
+// slide-in-right
+// -------------------
+@-webkit-keyframes slide-in-right {
+  0% {
+    -webkit-transform: translateX(70px);
+    transform: translateX(70px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-right {
+  0% {
+    -webkit-transform: translateX(70px);
+    transform: translateX(70px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+// -------------------
+// slide-in-top
+// -------------------
+@-webkit-keyframes slide-in-top {
+  0% {
+    -webkit-transform: translateY(-30px);
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-top {
+  0% {
+    -webkit-transform: translateY(-30px);
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+// -------------------
+// slide-out-top
+// -------------------
+@-webkit-keyframes slide-out-top {
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateY(-30px);
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+}
+
+@keyframes slide-out-top {
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateY(-30px);
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+}
+// -------------------
+// ANIMATIONS
+// -------------------
+// -------------------
+// shapeshifter
+// -------------------
+.shapeshifter {
+  animation-duration: 2300ms;
+  animation-timing-function: steps(138);
+  animation-fill-mode: forwards;
+  background-image: url("../../images/svg/bg_sprite.svg");
+  background-repeat: no-repeat;
+  height: 287px;
+  width: 277px;
+
+  &.play {
+    animation-name: logoPathAnimator;
+  }
+}
+// -------------------
+// slide-in-right
+// -------------------
+.slide-in-right {
+  -webkit-animation: slide-in-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    both;
+  animation: slide-in-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+// -------------------
+// slide-in-top
+// -------------------
+.slide-in-top {
+  -webkit-animation: slide-in-top 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: slide-in-top 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+// -------------------
+// slide-out-top
+// -------------------
+.slide-out-top {
+  -webkit-animation: slide-out-top 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    both;
+  animation: slide-out-top 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}

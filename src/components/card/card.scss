@@ -1,0 +1,39 @@
+.card {
+  background-color: #fff;
+  border-radius: 1.5rem;
+  display: flex;
+  height: 31rem;
+  margin-top: -25rem;
+  overflow: hidden;
+  position: relative;
+  width: 76%;
+
+  &:not(:last-of-type) {
+    margin-bottom: 28rem;
+  }
+
+  &__content {
+    background: linear-gradient(
+      90deg,
+      #1fdf4e 0%,
+      #1fdf4e 56%,
+      rgba(0, 212, 255, 0) 90%
+    );
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+  }
+
+  &__img {
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    width: 50rem;
+    z-index: 0;
+
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
