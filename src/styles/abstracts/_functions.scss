@@ -1,6 +1,0 @@
-// -------------------
-// receives an argument and returning the value in em
-// -------------------
-@function px-to-em($px) {
-  @return $px / 16 + em;
-}
