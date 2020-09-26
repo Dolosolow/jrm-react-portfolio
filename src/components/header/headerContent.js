@@ -4,7 +4,6 @@ import styled from 'styled-components';
 
 const StyledHeaderContent = styled(animated.div)`
   align-self: flex-end;
-  /* border: 2px solid gold; */
   margin-bottom: 5rem;
 
   @media only screen and (max-width: ${({ theme: { mediaPx } }) => mediaPx.tabPort / 16}em) {
@@ -12,7 +11,6 @@ const StyledHeaderContent = styled(animated.div)`
     margin-top: -1.5rem;
     margin-bottom: 3rem;
     order: 2;
-    /* width: 75%; */
   }
 `;
 
