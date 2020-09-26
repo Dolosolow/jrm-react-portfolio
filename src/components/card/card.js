@@ -109,13 +109,7 @@ const StyledCard = styled(animated.div)`
 `;
 
 const StyledButton = styled.button`
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 1.4rem;
   height: 4.5rem;
-  text-transform: capitalize;
-  text-align: center;
-  transition: all 0.25s ease-in-out;
   width: 14rem;
 
   :focus {
@@ -145,7 +139,6 @@ const StyledButton = styled.button`
     return css`
         background-color: ${color.hex() === '#DD457C' ? color.hex() : color.lighten(0.3).hex()};
         color: ${color.isDark() ? colors.white : colors.black};
-        border: none;
 
         &:hover {
           background-color: transparent;

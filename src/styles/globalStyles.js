@@ -34,7 +34,9 @@ const GlobalStyles = createGlobalStyle`
   }
 
   html {
+    background-color: #11131a;
     font-size: 62.5%;
+    scroll-behavior: smooth;
   }
 
   body {
@@ -51,11 +53,19 @@ const GlobalStyles = createGlobalStyle`
   a:focus,
   a:hover,
   a:active {
+    color: ${Theme.colors.rasinBlack};
     text-decoration: none;
   }
 
   button {
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
     font-family: ${Theme.fonts.primaryFont};
+    font-size: 1.4rem;
+    text-transform: capitalize;
+    text-align: center;
+    transition: all 0.25s ease-in-out;
   }
 
   ul {

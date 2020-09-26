@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useSpring, animated } from 'react-spring';
 import styled from 'styled-components';
 
-import Header from '../header';
-import Navbar from '../navbar';
-import CardList from '../cardList';
+import Header from 'components/header';
+import Navbar from 'components/navbar';
+import CardList from 'components/cardList';
+import ToTopButton from 'components/toTopButton';
 
 const MainWrapper = styled.div`
   background: #2e364a;
@@ -28,6 +29,23 @@ const ProgressBar = styled(animated.div)`
   z-index: 300;
 `;
 
+const SectionDivider = styled.span`
+  /* remove after all section have been placed */
+  /* border: 2px solid lime; */
+  position: absolute;
+  top: ${({ $name }) => {
+    switch($name) {
+      case 'top':
+        return '0';
+      case 'projects':
+        return '68.5rem';
+      default:
+        return 'top';
+    };
+  }};
+  z-index: 300;
+`;
+
 const App = () => {
   const [enableFocus, setEnableFocus] = useState(false);
   const animatedProgress = useSpring({
@@ -48,6 +66,7 @@ const App = () => {
 
   return (
     <MainWrapper $enableFocus={enableFocus}>
+      <SectionDivider $name='top' id="top" />
       <ProgressBar style={{ 
         width: animatedProgress.value.interpolate(value => `${value}%`), 
         display: animatedProgress.value.interpolate(value => value === 105 ? 'none' : 'block'),
@@ -56,7 +75,9 @@ const App = () => {
       />
       <Navbar />
       <Header />
+      <SectionDivider $name='projects' id="projects" />
       <CardList projects={[{ id: 1, name: '#fff' }, { id: 2, name: '#1db954' }, { id: 3, name: '#000' }, { id: 4, name: '#3937ff' }]} />
+      <ToTopButton />
     </MainWrapper>
   );
 }

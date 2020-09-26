@@ -100,17 +100,16 @@ const Navbar = () => {
 
   useLayoutEffect(() => {
     function updatePosition() {
-      if(window.pageYOffset > 50) {
+      if(window.pageYOffset >= 50) {
         setExpanded(true);
       } else {
         setExpanded(false);
       }
     }
     window.addEventListener('scroll', updatePosition);
-    updatePosition();
     
     return () => window.removeEventListener('scroll', updatePosition);
-  }, []);
+  }, [expanded]);
 
   return (
     <StyledNavbar $expanded={expanded}>

@@ -5,6 +5,15 @@ import styled from 'styled-components';
 const StyledHeaderContent = styled(animated.div)`
   align-self: flex-end;
   /* border: 2px solid gold; */
+  margin-bottom: 5rem;
+
+  @media only screen and (max-width: ${({ theme: { mediaPx } }) => mediaPx.tabPort / 16}em) {
+    align-self: flex-start;
+    margin-top: -1.5rem;
+    margin-bottom: 3rem;
+    order: 2;
+    /* width: 75%; */
+  }
 `;
 
 const HeaderContent = props => {
@@ -21,7 +30,7 @@ const HeaderContent = props => {
   ));
 
   return (
-    <StyledHeaderContent className="header-content">
+    <StyledHeaderContent>
       {animatedText}
     </StyledHeaderContent>
   )
