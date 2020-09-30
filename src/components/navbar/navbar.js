@@ -55,29 +55,21 @@ const StyledNavbar = styled.nav`
     }
   }
 
-  ${({ $expanded, theme }) => {
-    if(!$expanded) {
-      return css`
-        @media only screen and (max-width: ${theme.mediaPx.phone / 16}em) {
-          visibility: hidden;
-        }
-      `;
-    } else {
-      return css`
-        @media only screen and (max-width: ${theme.mediaPx.phone / 16}em) {
-          padding: ${({ $expanded }) => !$expanded ? '3rem 2rem 0rem 2rem' : '3rem 2rem 3rem 2rem'};
-          visibility: visible;
-        }
-      `;
-    }
-  }}
+  @media only screen and (max-width: ${({ theme: { mediaPx } }) => mediaPx.phone / 16}em) {
+    visibility: hidden;
+  }
 
-  ${({ $expanded, theme }) => {
+  ${({ $expanded, theme: { mediaPx } }) => {
     if($expanded) {
       return css`
         backdrop-filter: blur(2rem);
         background-color: rgba(18, 18, 18, 0.5);
         border-bottom: 1px solid rgba(24, 27, 37, 1);
+
+        @media only screen and (max-width: ${mediaPx.phone / 16}em) {
+          padding: ${({ $expanded }) => !$expanded ? '3rem 2rem 0rem 2rem' : '3rem 2rem 3rem 2rem'};
+          visibility: visible;
+        }
 
         ul {
           justify-content: flex-end;
@@ -122,7 +114,7 @@ const Navbar = () => {
             <a href="#skills">Skills</a>
           </li>
           <li>
-            <a href="#aboutMe">About</a>
+            <a href="#about">About</a>
           </li>
         </ul>
       </StyledNavContainer>

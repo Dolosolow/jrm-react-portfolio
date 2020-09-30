@@ -69,6 +69,11 @@ const StyledCard = styled(animated.div)`
     }
   }
 
+  .card__title,
+  .card__desc {
+    user-select: none;
+  }
+
   .card__img {
     display: inline-block;
     position: absolute;

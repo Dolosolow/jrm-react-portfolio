@@ -4,14 +4,10 @@ import styled from 'styled-components';
 
 import Card from 'components/card';
 
-const StyledCLContainer = styled.div`
-  align-items: center;
-  display: flex;
+import { StyledContainer } from 'styles/styled';
+
+const StyledCLContainer = styled(StyledContainer)`
   flex-direction: column;
-  height: max-content;
-  justify-content: center;
-  max-width: 120rem;
-  position: relative;
   width: 90%;
 `;
 
@@ -21,7 +17,6 @@ const StyledCardList = styled.div`
   display: flex;
   flex-direction: column;
   padding-top: 3rem;
-  padding-bottom: 10rem;
   position: relative;
   width: 100%;
   z-index: 5;

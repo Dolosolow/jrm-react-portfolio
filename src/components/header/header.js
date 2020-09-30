@@ -1,21 +1,19 @@
 import React from 'react';
 import { animated } from 'react-spring';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import HeaderContent from './headerContent';
+
+import { StyledText, StyledContainer } from 'styles/styled';
 
 import BgVideo from 'assets/vid/bg_vid.mp4';
 import BgImage from 'assets/png/bg_img.png';
 import LogoSprite from 'assets/svg/bg_sprite.svg';
 import { animateSvgPath } from 'styles/styledKeyframes';
 
-export const LayoutLimiter = styled.div`
-  align-items: center;
-  display: flex;
+export const LayoutLimiter = styled(StyledContainer)`
   height: 100%;
   justify-content: space-around;
-  max-width: 120rem;
-  width: 100%;
 
   @media only screen and (max-width: ${({ theme: { mediaPx } }) => mediaPx.tabPort / 16}em) {
     flex-direction: column;
@@ -25,20 +23,25 @@ export const LayoutLimiter = styled.div`
 `;
 
 const StyledHeader = styled.header`
+  background-color: ${({ theme: { colors } }) => colors.coolBlue};
   display: flex;
   justify-content: center;
-  height: 90vh;
+  height: 72rem;
   position: relative;
   width: 100%;
 
-  @media only screen and (max-width: ${({ theme: { mediaPx } }) => mediaPx.tabPort / 16}em) {
-    min-height: 67.5rem;
-    height: 85vh;
-  }
+  ${({ theme: { mediaPx } }) => {
+    return css`
+      @media only screen and (max-width: ${mediaPx.tabPort / 16}em) {
+        min-height: 67.5rem;
+        height: 85vh;
+      }
 
-  @media only screen and (max-width: ${750/16}em) {
-    height: 75vh;
-  }
+      @media only screen and (max-width: ${750/16}em) {
+        height: 75vh;;
+      }
+    `;
+  }}
 
   img {
     transform: scale(1.15);
@@ -74,49 +77,51 @@ const StyledHeader = styled.header`
     transform: scale(1.2);
     width: 277px;
 
-    @media only screen and (max-width: ${({ theme: { mediaPx } }) => mediaPx.tabLand / 16}em) {
-      transform: scale(1);
-    }
+    ${({ theme: { mediaPx } }) => {
+      return css`
+        @media only screen and (max-width: ${mediaPx.tabLand / 16}em) {
+          transform: scale(1);
+        }
 
-    @media only screen and (max-width: ${({ theme: { mediaPx } }) => mediaPx.tabPort / 16}em) {
-      align-self: flex-end;
-      margin-right: 8rem;
-      margin-bottom: 1.5rem;
-      order: 1;
-      transform: scale(0.9);
-    }
+        @media only screen and (max-width: ${mediaPx.tabPort / 16}em) {
+          align-self: flex-end;
+          margin-right: 8rem;
+          margin-bottom: 1.5rem;
+          order: 1;
+          transform: scale(0.9);
+        }
 
-    @media only screen and (max-width: ${({ theme: { mediaPx } }) => mediaPx.phone / 16}em) {
-      animation-delay: 0;
-      animation-duration: 0;
-      margin-right: 0;
-      transform: scale(0.7);
-    }
+        @media only screen and (max-width: ${mediaPx.phone / 16}em) {
+          animation-delay: 0;
+          animation-duration: 0;
+          margin-right: 0;
+          transform: scale(0.7);
+        }
+      `;
+    }}
   }
-`;
-
-const StyledText = styled(animated.p)`
-  color: ${({ theme: { colors }, $colored }) => $colored ? colors.primary : colors.smokedWhite};
-  font-weight: 400;
-  margin: ${({ $margin }) => $margin ? $margin : 0};
-  max-width: ${({ $maxWidth }) => $maxWidth ? `${$maxWidth}px` : `none`};
 `;
 
 const StyledTitle = styled(animated.p)`
   color: ${({ theme: { colors }, $light }) => $light ? colors.white : colors.smokedWhite};
-  font-size: 5rem;
+  font-size: 6rem;
   font-weight: 900;
   letter-spacing: -3px;
 
-  @media only screen and (max-width: ${({ theme: { mediaPx } }) => mediaPx.tabPort / 16}em) {
-      font-size: 6rem;
-      line-height: 1;
-    }
+  ${({ theme: { mediaPx } }) => {
+    return css`
+      @media only screen and (max-width: ${mediaPx.tabPort / 16}em) {
+        line-height: 1;
+      }
 
-  @media only screen and (max-width: ${({ theme: { mediaPx } }) => mediaPx.phone / 16}em) {
-    font-size: 4.5rem;
-  }
+      @media only screen and (max-width: ${mediaPx.phone / 16}em) {
+        font-size: 4.5rem;
+      }
+    `;
+  }}
 `;
+
+const AnimtedStyledText = animated(StyledText);
 
 const Header = () => {
   return (
@@ -130,12 +135,12 @@ const Header = () => {
       </picture>
       <LayoutLimiter>
         <HeaderContent>
-          <StyledText $colored={true}>Hi, my name is</StyledText>
+          <AnimtedStyledText $colored={true} $margin='0 0 0.5rem 0'>Hi, my name is</AnimtedStyledText>
           <StyledTitle $light={true}>Jose Munoz</StyledTitle>
           <StyledTitle>I build things for the web</StyledTitle>
-          <StyledText $maxWidth='400' $margin='2.5rem 0'>I'm a software engineer based in Jersey City, NJ specializing in building and designing 
+          <AnimtedStyledText $maxWidth='400' $margin='2.5rem 0'>I'm a software engineer based in Jersey City, NJ specializing in building and designing 
           high-quality websites and applications.
-          </StyledText>
+          </AnimtedStyledText>
         </HeaderContent>
         <div className="path-shifter" />
       </LayoutLimiter>

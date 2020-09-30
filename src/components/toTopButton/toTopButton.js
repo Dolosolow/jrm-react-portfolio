@@ -1,6 +1,7 @@
 import React, { useLayoutEffect, useState } from 'react';
 import styled from 'styled-components';
-import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronUp } from '@fortawesome/free-solid-svg-icons';
 
 const StyledButton = styled.button`
   background-color: ${({ theme: { colors } }) => colors.smokedWhite};
@@ -39,12 +40,10 @@ const ToTopButton = props => {
     };
   }, [show]);
 
-  console.log(window.outerWidth)
-
   return (
     <StyledButton $show={show}>
       <a href="#top">
-        <KeyboardArrowUpIcon fontSize='large' style={{ transform: 'scale(2.5)' }} />
+        <FontAwesomeIcon icon={faChevronUp} size="2x" />
       </a>
     </StyledButton>
   )

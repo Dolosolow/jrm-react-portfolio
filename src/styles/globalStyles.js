@@ -3,16 +3,16 @@ import { createGlobalStyle } from 'styled-components';
 export const Theme = {
   colors: {
    black: '#121212',
+   coolBlue: '#2e364a',
    primary: '#dd457c',
    rasinBlack: '#181b25',
-   white: 'rgba(255, 255, 255, 0.9)',
-   smokedWhite: 'rgba(255, 255, 255, 0.4)'
+   smokedWhite: 'rgba(255, 255, 255, 0.4)',
+   white: 'rgba(255, 255, 255, 0.9)'
   },
   fonts: {
     primaryFont: 'source-han-sans-simplified-c, sans-serif'
   },
   mediaPx: {
-    bigDesktop: 2000,
     tabLand: 1200,
     tabPort: 950,
     phone: 600

@@ -1,16 +1,38 @@
 import React, { useState, useEffect } from 'react';
 import { useSpring, animated } from 'react-spring';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import Header from 'components/header';
 import Navbar from 'components/navbar';
 import CardList from 'components/cardList';
+import AboutContainer from 'components/aboutContainer';
+import Footer from 'components/footer';
 import ToTopButton from 'components/toTopButton';
 
+const getSectionDivider = (position, screen = null) => {
+  switch(position) {
+    case 'projects':
+      if(screen !== null && screen <= 950) {
+        return '64.3rem';
+      }
+      return '68.5rem';
+    case 'about':
+      if(screen <= 750) {
+        return '297rem';
+      }
+      return '245rem';
+    default:
+      return 0;
+  };
+}
+
 const MainWrapper = styled.div`
-  background: #2e364a;
-  overflow-x: hidden;
+  align-items: center;
+  background: ${({ theme: { colors } }) => colors.rasinBlack};
+  display: flex;
+  flex-direction: column;
   height: 100%;
+  overflow-x: hidden;
   position: relative;
   width: 100%;
 
@@ -30,20 +52,22 @@ const ProgressBar = styled(animated.div)`
 `;
 
 const SectionDivider = styled.span`
-  /* remove after all section have been placed */
-  /* border: 2px solid lime; */
-  position: absolute;
-  top: ${({ $name }) => {
-    switch($name) {
-      case 'top':
-        return '0';
-      case 'projects':
-        return '68.5rem';
-      default:
-        return 'top';
-    };
-  }};
-  z-index: 300;
+  ${({ $name, theme: { mediaPx } }) => {
+    return css`
+      /* border: 2px solid lime; */
+      position: absolute;
+      top: ${getSectionDivider($name)};
+      z-index: 300;
+
+      @media only screen and (max-width: ${mediaPx.tabPort / 16}em) {
+        top: ${getSectionDivider($name, mediaPx.tabPort)};
+      }
+
+      @media only screen and (max-width: ${750/16}em) {
+        top: ${getSectionDivider($name, 750)};
+      }
+    `;
+  }}
 `;
 
 const App = () => {
@@ -77,6 +101,9 @@ const App = () => {
       <Header />
       <SectionDivider $name='projects' id="projects" />
       <CardList projects={[{ id: 1, name: '#fff' }, { id: 2, name: '#1db954' }, { id: 3, name: '#000' }, { id: 4, name: '#3937ff' }]} />
+      <AboutContainer />
+      <SectionDivider $name='about' id="about" />
+      <Footer />
       <ToTopButton />
     </MainWrapper>
   );
