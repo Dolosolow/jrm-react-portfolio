@@ -1,25 +1,10 @@
 import React, { useLayoutEffect, useState } from 'react';
-import styled from 'styled-components';
+import { StyledButton } from './styles';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronUp } from '@fortawesome/free-solid-svg-icons';
 
-const StyledButton = styled.button`
-  background-color: ${({ theme: { colors } }) => colors.smokedWhite};
-  display: ${({ $show }) => $show ? 'block' : 'none'};
-  height: 5rem;
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  transition: none;
-  width: 5rem;
-  z-index: 100;
-
-  :hover {
-    background-color: rgba(255, 255, 255, 0.2);
-  }
-`;
-
-const ToTopButton = props => {
+const ToTopButton = () => {
   const [show, setShow] = useState(false);
 
   useLayoutEffect(() => {

@@ -1,18 +1,6 @@
 import React from 'react';
-import { useTrail, animated } from 'react-spring';
-import styled from 'styled-components';
-
-const StyledHeaderContent = styled(animated.div)`
-  align-self: flex-end;
-  margin-bottom: 5rem;
-
-  @media only screen and (max-width: ${({ theme: { mediaPx } }) => mediaPx.tabPort / 16}em) {
-    align-self: flex-start;
-    margin-top: -1.5rem;
-    margin-bottom: 3rem;
-    order: 2;
-  }
-`;
+import { useTrail } from 'react-spring';
+import { StyledHeaderContent } from './styles';
 
 const HeaderContent = props => {
   const { children } = props;
